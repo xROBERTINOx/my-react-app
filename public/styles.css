@@ -1,0 +1,54 @@
+a {
+    color: purple;
+}
+/* colors */
+.red {
+    color: red;
+}
+.green{
+    color: green;
+}
+.blue{
+    color: blue;
+}
+.orange{
+    color: orange;
+}
+.orange-red{
+    color: orangered;
+}
+
+/* other */
+
+.underline{
+    text-decoration: underline;
+}
+.underline-dotted{
+    text-decoration: underline dotted;
+}
+.underline-wavy{
+    text-decoration: wavy underline;
+}
+.underline-overline{
+    text-decoration: underline overline;
+}
+.underline-overline-wavy{
+    text-decoration: wavy underline overline;
+}
+.overline{
+    text-decoration: overline;
+}
+.overline-wavy{
+    text-decoration: wavy overline;
+}
+.line-cross{
+    text-decoration: line-through;
+}
+.line-cross-wavy{
+    text-decoration: wavy line-through;
+}
+.test{
+    display: flex;
+    flex-direction: row;    
+}
+  
