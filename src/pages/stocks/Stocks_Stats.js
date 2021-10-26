@@ -1,9 +1,9 @@
 import React,{useState} from 'react';
 const Main = () => {
-    const boom = "test";
+    const boom = "stats";
     return (
         <div>
-            <h1>this is just a {boom}</h1>
+            <h1>this is just {boom}</h1>
         </div>
     );
 }
