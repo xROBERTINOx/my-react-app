@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React from 'react';
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from "./pages/Home";
@@ -9,22 +9,6 @@ import Text from "./pages/Text";
 import Form from "./pages/Form";
 import TextArea from "./pages/TextArea";
 
-
-function MyArea() {
-  const [textarea, setTextarea] = useState(
-    "The content of a textarea goes in the value attribute"
-  );
-
-  const handleChange = (event) => {
-    setTextarea(event.target.value)
-  }
-
-  return (
-    <form>
-      <textarea value={textarea} onChange={handleChange} />
-    </form>
-  )
-}
 
 export default function App() {
   return (

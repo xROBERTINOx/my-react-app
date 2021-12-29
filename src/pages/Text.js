@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 const Text = () => {
     const Text = () => {  
-        const array = ['test 1', 'test2', 'test3'];
+//        const array = ['test 1', 'test2', 'test3'];
         const [list, setList] = useState([])
         const [list2, setList2] = useState([])
         const handleClick = () =>{

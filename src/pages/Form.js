@@ -4,14 +4,12 @@ const Form = () => {
     const [name, setName] = useState("");
   
     const handleSubmit_Name = (event) => {
-      event.preventDefault();
       alert(`Your name is: ${name}`)
     }
 
     const [age, setAge] = useState("");
 
     const handleSubmit_Age = (event) =>{
-      event.preventDefault();
       alert(`Your age is: ${age}`)
       
     }

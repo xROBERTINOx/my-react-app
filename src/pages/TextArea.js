@@ -1,25 +1,20 @@
 import React,{useState} from 'react';
 const TextArea = () => {
-  function TextArea() {
-    const [textarea, setTextarea] = useState(
-      "The content of a textarea goes in the value attribute"
+  var yus = window.localStorage.getItem("bal")
+  if(yus >= 1) {
+    return(
+      <div>
+        <h1>bal is larger than or equal to 1</h1>
+      </div>
     );
-  
-    const handleChange = (event) => {
-      setTextarea(event.target.value)
-    }
-    
+  }else {  
     return (
-      <form>
-        <textarea 
-          rows={10}
-          value={textarea}
-          onChange={handleChange} />
-      </form>
-    )
-  }
-  return <TextArea />  
-  };
+      <div>
+        <h1>bal is not larger than or equal to 1</h1>
+      </div>
+    );
+  } 
+};
   
   export default TextArea;
   
