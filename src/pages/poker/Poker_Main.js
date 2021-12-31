@@ -15,6 +15,7 @@ const Poker_Main = () => {
   const [inLeftHand, setInLeftHand] = useState(parseInt(getItem("inLeftHand", 0)));
   const [inRightHand, setInRightHand] = useState(parseInt(getItem("inLeftHand", 0)));
 
+//change to inLeftHand_type and inLeftHand_corr
   const changeLocalStorageItem = (item, newValue) => {
     window.localStorage.setItem(item, newValue);
     return;
