@@ -10,42 +10,73 @@ function getItem(item, defaultForItem){
 }  
 
 const Poker_Main = () => {
-  const inLeftHand = useState(parseInt(getItem("inLeftHand", 0)));
-  const inRightHand = useState(parseInt(getItem("inLeftHand", 0)));
-//  const printCard = (type, number) => {
-//    if (type === )
-//  }
+  const deckCorr = {"Diamonds":[1,2,3,4,5,6,7,8,9],"Clubs":[1,2,3,4,5,6,7,8,9],"Spades":[1,2,3,4,5,6,7,8,9],"Hearts":[1,2,3,4,5,6,7,8,9],}
+  const deckType = {1 : "Diamonds",2 : "Clubs",3 : "Spades",4 : "Hearts"}
+  const [inLeftHand, setInLeftHand] = useState(parseInt(getItem("inLeftHand", 0)));
+  const [inRightHand, setInRightHand] = useState(parseInt(getItem("inLeftHand", 0)));
 
+  const changeLocalStorageItem = (item, newValue) => {
+    window.localStorage.setItem(item, newValue);
+    return;
+  }
   
-  const deck = {"Diamonds":[1,2,3,4,5,6,7,8,9],"Clubs":[1,2,3,4,5,6,7,8,9],"Spades":[1,2,3,4,5,6,7,8,9],"Hearts":[1,2,3,4,5,6,7,8,9],}
+  const changeInLeftHand = (newValue) => {
+    setInLeftHand(newValue);
+    changeLocalStorageItem("inLeftHand", newValue);
+    return;
+  }
 
-  const anotherDeck = {1 : "Diamonds",
-                       2 : "Clubs",
-                       3 : "Spades",
-                       4 : "Hearts"}
+  const changeInRightHand = (newValue) => {
+    setInRightHand(newValue);
+    changeLocalStorageItem("inRightHand", newValue);
+    return;
+  }
   
-  function returnAnotherElement(props) {
+  
+  const getRandomInt = (min, max) => {
+    const randomNumber = randomInt(min, max);
+    return randomNumber;
+  }
+
+
+
+  const checkIf2CardsInHand = () => {
+    if (inLeftHand === 0 && inRightHand === 0) {
+      const card = getCard()
+    }
+  }
+
+  const getCard = () => {
     const randomNumber = randomInt(1,9);
-    const randomCardType = randomInt(1,4)
-    const hi = <h1>HI</h1>
-    return <h1>HI, {props.name}</h1>;
+    const randomCardType = randomInt(1,4);
+    const cardNumber = 1
+    const card = deckCorr[deckType[randomCardType]][randomNumber];
+    return card;
   }
 
-  const returnL = () => {
-    return <h1>HI</h1> 
+  const setCardAfterGet = (card) => {
+    if (inLeftHand === 0){
+      setInLeftHand(card);
+      return;
+    } else if (inLeftHand != 0 && inRightHand === 0){
+      setInRightHand(card);
+      return;
+    }
   }
 
-  const anotherElement = <h1>The random card is: {deck[anotherDeck[randomInt(1,4)]][randomInt(1,9)]}</h1>                     
-  const element = <h1>Hello, world! {deck["Diamonds"][2-1]}</h1>;
-
+//After Game ends, set InLeftHand and InRightHand to 0
+  if (inLeftHand === 0 && inRightHand === 0){
+    return(
+      <button onClick={getCard}>yuh</button>
+    );
+  } else {
   return (
-  
     <div>
-      <div>{anotherElement}</div>
-      <div>{element}</div>
-      <div>{returnL}</div>
+      <h2></h2>
+      <button onClick={checkIf2CardsInHand}>Get A card</button>
     </div>
   );
+  }
 };
   
 export default Poker_Main;
