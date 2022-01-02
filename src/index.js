@@ -9,6 +9,7 @@ import Text from "./pages/Text";
 import Form from "./pages/Form";
 import TextArea from "./pages/TextArea";
 import Poker_Main from "./pages/poker/Poker_Main";
+import Game from "./pages/superpg/game";
 
 
 export default function App() {
@@ -31,6 +32,9 @@ export default function App() {
       </div>
       <div>
         <Link to="/poker/Poker_Main">Poker Project: Game</Link>
+      </div>
+      <div>
+        <Link to="/superpg/Game">SupeRPG : Game</Link>
       </div>
       <div>
         <Link to="/blogs">Blog Articles</Link>
@@ -65,6 +69,9 @@ export default function App() {
         </Route>
         <Route path="/poker/Poker_Main">
           <Poker_Main />
+        </Route>
+        <Route path="/superpg/Game">
+          <Game />
         </Route>
       </Switch>
     </Router>
