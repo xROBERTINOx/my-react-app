@@ -16,7 +16,8 @@ const Game = () => {
         return window.localStorage.getItem(item);
     }
 
-    const [inv, setInv] = useState({})
+    const [invCount, setInvCount] = useState([3,1,3])
+    const [invItem, setInvItem] = useState(["swords", "coins", "other inv item"])
 //    setInv(JSON.parse(inv))
 //    const inv = JSON.stringify(value);
 //    save `valueAsString`
@@ -26,22 +27,23 @@ const Game = () => {
 
 
     
-    const increaseInv = () => {
-        setInv([...inv, inv.length]);
+    const increaseInvCount = () => {
+        setInvCount([...invCount, invCount.length]);
     }
 
-    const decreaseInv = (index) => {
-        setInv(
-            inv.filter((value, idx) => idx !== index)
+    const decreaseInvCount = (index) => {
+        setInvCount(
+            invCount.filter((value, idx) => idx !== index)
         );
     }
 
     return(
         <div>
-            {inv.map((number, index) => (
-                <h2>item {number}</h2>
+            {invCount.map((number, index) => (
+                
+                <h2>{number} {invItem[index]}</h2>
             ))}
-            <h2>{inv}</h2>
+            <h2>{invCount}</h2>
         </div>
     );
 }
