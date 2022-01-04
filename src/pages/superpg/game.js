@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 //add stats page
 
 const Game = () => {
+    window.localStorage.setItem("invItems", "[1, 1, 1]");
+
     const getItem = (item, defaultForItem, constOrVar) => {
         if (constOrVar === "const") {
             const check = window.localStorage.getItem(item);
@@ -16,18 +18,17 @@ const Game = () => {
     }
 
     const getItemArr = (item, defaultForItem) => {
-        const check = window.localStorage.getItem(item);
+        let check = window.localStorage.getItem(item);
         if (!check){
             window.localStorage.setItem(item, defaultForItem);
+            check = window.localStorage.getItem(item);
         }
-        return JSON.parse(window.localStorage.getItem(item));  
+        check = JSON.parse(check);
+        return check;
     }
-//    const gotArr = getItemArr("invItem", "['swords', 'coins', 'other inv item']");
-//    const [invItem, setInvItem] = useState(getItemArr("invCount", "[3,1,3]"));
     const [invCount, setInvCount] = useState(getItemArr("invCount", "[3,1,3]"));
- //   const testBefore = getItem(getItemArr("test", "[{item:'coins',amount:'3'}{item:'apples',amount:2}]"));
-//    const testAfter = JSON.parse(testBefore);
-//    const [test, setTest] = useState(getItemArr("test", "[{item:'coins',amount:'3'}{item:'apples',amount:2}]"));
+    const [invItems, setInvItems] = useState(getItemArr("invItems", "[3,1,3]"));
+//    const [invCount, setInvCount] = useState([3,1,3]);
 //    setInv(JSON.parse(inv))
 //    const inv = JSON.stringify(value);
 //    save `valueAsString`
@@ -35,9 +36,9 @@ const Game = () => {
 //    to change back to value  
     
     const changeInvCount = (newArr) => {
+        setInvCount(newArr);
         const realNewArr = JSON.stringify(newArr);
         window.localStorage.setItem("invCount", realNewArr);
-        setInvCount(realNewArr);
         return;
     }
 
@@ -56,11 +57,12 @@ const Game = () => {
             changeInvCount(newArr);
         }
     }
-
+    console.log("this is invCount");
+    console.log(invCount);
     return(
         <div>
             {invCount.map((number, index) => (    
-                <h2>{number}</h2>
+                <h2>{number} {invItems[index]}</h2>
             ))}
             {invCount.map((number, index) => (
                 <button onClick={() => increaseInvCountByOne(index)}>Increase by one</button>
