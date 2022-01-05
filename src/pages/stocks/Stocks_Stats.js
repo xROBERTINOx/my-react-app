@@ -27,6 +27,8 @@ const Main = () => {
                 <h1>shares: {shares}</h1>
                 <h1>stock price: {price}</h1>
                 <h1>days left: {daysLeft}</h1>
+                <h1>level: {level}</h1>
+                <h1>xp: {xp}</h1>
             </div>
         </div>
     );

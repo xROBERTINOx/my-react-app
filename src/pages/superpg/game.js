@@ -26,15 +26,18 @@ const Game = () => {
         check = JSON.parse(check);
         return check;
     }
+
     const [invCount, setInvCount] = useState(getItemArr("invCount", "[3,1,3]"));
-    const [invItems, setInvItems] = useState(getItemArr("invItems", "[3,1,3]"));
-//    const [invCount, setInvCount] = useState([3,1,3]);
-//    setInv(JSON.parse(inv))
-//    const inv = JSON.stringify(value);
-//    save `valueAsString`
-//    const parsedValue = JSON.parse(valueAsString);
-//    to change back to value  
-    
+    const invItems = ["coins","apples","fish_1","fish_2","wood_1","wood_2"];
+//ALL ITEMS:
+//*coins
+//*apples
+//*fish_1
+//*fish_2
+//*fish_3
+//*wood_1
+//*wood_2
+
     const changeInvCount = (newArr) => {
         setInvCount(newArr);
         const realNewArr = JSON.stringify(newArr);
@@ -57,8 +60,7 @@ const Game = () => {
             changeInvCount(newArr);
         }
     }
-    console.log("this is invCount");
-    console.log(invCount);
+
     return(
         <div>
             {invCount.map((number, index) => (    
