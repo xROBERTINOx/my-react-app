@@ -37,6 +37,7 @@ const Stocks = () => {
       }
     }
 
+
     const checkForLevelUp = (xp) => {
       if (xp >= 1000000){
         changeLevelByOne();

@@ -10,6 +10,7 @@ import Form from "./pages/Form";
 import TextArea from "./pages/TextArea";
 import Poker_Main from "./pages/poker/Poker_Main";
 import Game from "./pages/superpg/game";
+import SpontaneousMain from "./pages/spontaneous/SpontaneousMain";
 
 
 export default function App() {
@@ -42,6 +43,9 @@ export default function App() {
       <div>
         <Link to="/textarea">Text Area</Link>
       </div>
+      <div>
+        <Link to="/spontaneous/Main">SpontaneousStocks: Game</Link>
+      </div>
 
       <hr />
 
@@ -72,6 +76,9 @@ export default function App() {
         </Route>
         <Route path="/superpg/Game">
           <Game />
+        </Route>
+        <Route path="/spontaneous/Main">
+          <SpontaneousMain />
         </Route>
       </Switch>
     </Router>
